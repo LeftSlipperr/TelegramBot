@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "uyZ0HcPORopPrqtD2USFG+NLsJqdVyHFRPyTsqnzY+ReL0xDT3a4KzW4SfXMviB2WHcu6ofWN4fDj/Xj8YHWKw==",
+  "success": true,
+  "projectFilePath": "D:\\TelegramBot\\Domain\\Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\fluentvalidation\\11.9.0\\fluentvalidation.11.9.0.nupkg.sha512"
+  ],
+  "logs": []
+}
