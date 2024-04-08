@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
+using System.Text.Json.Serialization;
 
 namespace Domain.ValueObjects
 {
@@ -10,12 +12,26 @@ namespace Domain.ValueObjects
     {
         public override bool Equals(object? obj)
         {
-            //TODO: Разобраться как сравнить (DeepCompare => DeepClone)
-            return base.Equals(obj);
+            if (ReferenceEquals(this, obj))
+            {
+                return true;
+            }
+            if (obj is null)
+                return false;
+            
+            if (this.GetType() != obj.GetType())
+            {
+                return false;
+            }
+
+            string jsonThis = JsonSerializer.Serialize(this);
+            string jsonOther = JsonSerializer.Serialize(obj);
+
+            return jsonThis.Equals(jsonOther);
         }
         public override int GetHashCode()
         {
-            throw new NotImplementedException();
+            return base.GetHashCode();
         }
     }
 }

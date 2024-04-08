@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Domain.Primitives;
 
-namespace Domain.Primitives
+public enum Gender
 {
-    public enum Gender
-    {
-        Undefined = 0,
-        Man = 1,
-        Woman = 2,
-        Other = 3
-    }
+    Undefined = 0,
+    Man = 1,
+    Woman = 2,
+    Other = 3
 }

@@ -1,21 +1,24 @@
-﻿using Domain.Primitives;
-using Domain.ValueObjects;
+﻿using Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Domain.Primitives;
 
 namespace Domain.Entities
 {   /// <summary>
-/// Класс Человек
-/// </summary>
+    /// Класс Человек
+    /// </summary>
     public class Person : BaseEntity
     {
         /// <summary>
         /// Базовый конструктор.
         /// </summary>
-        public Person() {}
+        public Person()
+        {
+            
+        }
         /// <summary>
         /// ФИО человека
         /// </summary>
@@ -36,26 +39,15 @@ namespace Domain.Entities
                     age--;
                 return age;
             }
-            set
-            {
-                Age = value;
-                Birthday = DateTime.Now.AddYears(-value);
-            }
         }
-
         /// <summary>
-        /// Гендер человека
+        /// Пол
         /// </summary>
         public Gender Gender { get; set; }
-
+        
         /// <summary>
-        /// Кастмные поля
+        /// Кастомные поля
         /// </summary>
         public List<CustomField> CustomFields { get; set; }
-
-        // private FullName ValidateFullName(FullName fullName)
-        // {
-        //
-        // }
     }
 }

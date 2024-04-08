@@ -9,6 +9,6 @@ namespace Domain.Validators
 {
     public class FullNameValidator : AbstractValidator<FullNameValidator>
     {
-    
+        
     }
 }
