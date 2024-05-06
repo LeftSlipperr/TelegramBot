@@ -16,6 +16,8 @@ namespace Domain.Entities
         /// Идентификатор для сущности.
         /// </summary>
         public Guid Id {  get; set; }
+        
+        public DateTime Created { get; set; }
 
         /// <summary>
         /// Проверяет, равны ли два объекта BaseEntity.
@@ -50,6 +52,27 @@ namespace Domain.Entities
             var hash = 17;
             hash = hash * 23 + Id.GetHashCode();
             return hash;
+        }
+        //TODO переопределить == и !=
+        /// <summary>
+        /// Проверяет, равны ли два объекта BaseEntity.
+        /// </summary>
+        /// <param name="obj1">Объект для сравнения 1.</param>
+        /// <param name="obj2">Объект для сравнения 2.</param>
+        /// <returns>True, если объекты равны, иначе False.</returns>
+        public static bool operator ==(BaseEntity obj1, BaseEntity? obj2)
+        {
+            return obj1.Equals((object)obj2);
+        }
+        /// <summary>
+        /// Проверяет, равны ли два объекта BaseEntity.
+        /// </summary>
+        /// <param name="obj1">Объект для сравнения 1.</param>
+        /// <param name="obj2">Объект для сравнения 2.</param>
+        /// <returns>True, если объекты неравны, иначе False.</returns>
+        public static bool operator !=(BaseEntity obj1, BaseEntity? obj2)
+        {
+            return !(obj1==obj2);
         }
     }
 }

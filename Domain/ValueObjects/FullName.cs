@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Domain.Validators;
 
 namespace Domain.ValueObjects
 {
@@ -12,36 +13,31 @@ namespace Domain.ValueObjects
     public class FullName : BaseValueObject
     {
         /// <summary>
-        /// Конструктор фамилия, имя
-        /// </summary>
-        /// <param name="firstName">Имя</param>
-        /// <param name="lastName">Фамилия</param>
-        public FullName(string firstName, string lastName)
-        {
-            FirstName = firstName; 
-            LastName = lastName;
-        }
-        /// <summary>
         /// Конструктор фамилия, имя, отчество
         /// </summary>
         /// <param name="firstName">Иия</param>
         /// <param name="lastName">Фамилия</param>
         /// <param name="middleName">Отчество (второе имя)</param>
-        public FullName(string firstName, string lastName, string? middleName) : this(firstName, lastName)
+        public FullName(string firstName, string lastName, string? middleName)
         {
-            MiddleName = middleName;
+            FirstName = firstName;
+            LastName = lastName;
+            
+            var validator = new FullNameValidator();
+            validator.Validate(this);
         }
         /// <summary>
         /// Имя
         /// </summary>
-        public required string FirstName {  get; set; }
+        public  string FirstName {  get; set; }
         /// <summary>
         /// Фамилия
         /// </summary>
-        public required string LastName { get; set; }
+        public  string LastName { get; set; }
+
         /// <summary>
         /// Отчество (второе имя)
         /// </summary>
-        public string? MiddleName { get; set; }
+        public string? MiddleName { get; set; } = null;
     }
 }
